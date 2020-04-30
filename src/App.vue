@@ -1,16 +1,23 @@
 <template>
 <!-- TradingVueJs 101 (example from 'Getting Started' ) -->
 
-<trading-vue :data="chart" :width="this.width" :height="this.height"
+<trading-vue
+    :data="chart"
+    :width="this.width"
+    :height="this.height"
     :color-back="colors.colorBack"
     :color-grid="colors.colorGrid"
-    :color-text="colors.colorText">
+    :color-text="colors.colorText"
+    :overlays="overlays">
 </trading-vue>
 </template>
 
 <script>
 import TradingVue from 'trading-vue-js'
-import Data from '../data/data.json'
+import Data from '../data/dataCustom.json'
+import Grin from './Grin.js' // New import
+import Spline from './overlays/Spline'
+import Splines from './overlays/Splines'
 
 export default {
     name: 'app',
@@ -33,10 +40,11 @@ export default {
             width: window.innerWidth,
             height: window.innerHeight,
             colors: {
-                colorBack: '#fff',
-                colorGrid: '#eee',
-                colorText: '#333',
-            }
+                colorBack: '#000',
+                colorGrid: '#262626',
+                colorText: '#fff',
+            },
+            overlays: [Spline, Splines]
         }
     }
 }
