@@ -26,8 +26,6 @@ export default {
                     const x = layout.t2screen(p[0])
                     const y = layout.$2screen(p[i+1])
 
-                    ctx.lineWidth = this.widths[i] || this.line_width
-
                     if (rowIndex == 0) {
                         ctx.beginPath()
                         ctx.lineTo(x, y)
@@ -36,10 +34,13 @@ export default {
                         ctx.moveTo(lx, ly)
                         ctx.quadraticCurveTo(lx, ly, x, y)
                     }
+
                     lx = x
                     ly = y
 
+                    ctx.lineWidth = this.widths[i] || this.line_width
                     ctx.strokeStyle = colorSettings && colorSettings[rowIndex] || this.clrx[i]
+
                     ctx.stroke()
                     ctx.closePath()
                 }
