@@ -19,8 +19,8 @@ export default {
                 const lineSettings = settings[i] || settings[i.toString()] || {}
                 const colorSettings = lineSettings.colors
 
-                let lx = 0;
-                let ly = 0;
+                let lx = 0
+                let ly = 0
                 for (let rowIndex = 0;rowIndex < this.$props.data.length;rowIndex++) {
                     const p = this.$props.data[rowIndex]
                     const x = layout.t2screen(p[0])
